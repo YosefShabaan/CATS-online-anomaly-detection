@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import datetime
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODELS_DIR = BASE_DIR / "models"
 
 import tensorflow as tf
 from tensorflow import keras
@@ -72,55 +76,55 @@ def model_build(model_type, optimizer, epoch, percentile):
     if model_type == "Model 1":
         autoencoder = build_autoencoder("Model 1")
         if optimizer == "Adam" and epoch == "30" and percentile == "90":
-            autoencoder.load_weights("models\m1_adam_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_adam_e30.h5")
             threshold = 0.712901719027131
         if optimizer == "Adam" and epoch == "30" and percentile == "95":
-            autoencoder.load_weights("models\m1_adam_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_adam_e30.h5")
             threshold = 0.8540586741485884
         if optimizer == "Adam" and epoch == "60" and percentile == "90":
-            autoencoder.load_weights("models\m1_adam_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_adam_e60.h5")
             threshold = 0.7195667774220919
         if optimizer == "Adam" and epoch == "60" and percentile == "95":
-            autoencoder.load_weights("models\m1_adam_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_adam_e60.h5")
             threshold = 0.8690659052845591
         if optimizer == "RMSprop" and epoch == "30" and percentile == "90":
-            autoencoder.load_weights("models\m1_rms_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_rms_e30.h5")
             threshold = 0.738507739374793
         if optimizer == "RMSprop" and epoch == "30" and percentile == "95":
-            autoencoder.load_weights("models\m1_rms_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_rms_e30.h5")
             threshold = 0.880710482063847
         if optimizer == "RMSprop" and epoch == "60" and percentile == "90":
-            autoencoder.load_weights("models\m1_rms_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_rms_e60.h5")
             threshold = 0.729910393617794
         if optimizer == "RMSprop" and epoch == "60" and percentile == "95":
-            autoencoder.load_weights("models\m1_rms_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m1_rms_e60.h5")
             threshold = 0.8784755999776444
 
     if model_type == "Model 2":
         autoencoder = build_autoencoder("Model 2")
         if optimizer == "Adam" and epoch == "30" and percentile == "90":
-            autoencoder.load_weights("models\m2_adam_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_adam_e30.h5")
             threshold = 0.22526050543400736
         if optimizer == "Adam" and epoch == "30" and percentile == "95":
-            autoencoder.load_weights("models\m2_adam_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_adam_e30.h5")
             threshold = 0.37730381179387495
         if optimizer == "Adam" and epoch == "60" and percentile == "90":
-            autoencoder.load_weights("models\m2_adam_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_adam_e60.h5")
             threshold = 0.22454969771467106
         if optimizer == "Adam" and epoch == "60" and percentile == "95":
-            autoencoder.load_weights("models\m2_adam_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_adam_e60.h5")
             threshold = 0.37595087812035954
         if optimizer == "RMSprop" and epoch == "30" and percentile == "90":
-            autoencoder.load_weights("models\m2_rms_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_rms_e30.h5")
             threshold = 0.22683427400617032
         if optimizer == "RMSprop" and epoch == "30" and percentile == "95":
-            autoencoder.load_weights("models\m2_rms_e30.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_rms_e30.h5")
             threshold = 0.37864416533085626
         if optimizer == "RMSprop" and epoch == "60" and percentile == "90":
-            autoencoder.load_weights("models\m2_rms_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_rms_e60.h5")
             threshold = 0.2267485741862487
         if optimizer == "RMSprop" and epoch == "60" and percentile == "95":
-            autoencoder.load_weights("models\m2_rms_e60.h5")
+            autoencoder.load_weights(MODELS_DIR / "m2_rms_e60.h5")
             threshold = 0.38110223655544756
     
     return autoencoder, threshold
